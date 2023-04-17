@@ -8,13 +8,23 @@ public class meituans2 {
             int n = scanner.nextInt();
             int a = scanner.nextInt();
             int b = scanner.nextInt();
-            System.out.println(getMin(n, a, b));
+
+            int l = 0, r = Math.max(a, b);
+            while (l < r) {
+                int mid = (l + r + 1) / 2;
+                if (check(mid, n, a, b)) {
+                    l = mid;
+                } else {
+                    r = mid - 1;
+                }
+            }
+
+            System.out.println(r);
         }
     }
 
-    private static int getMin(int n ,int a, int b) {
-        int x = (a + b) / n;
-        int left1 = a / x;
-        return Math.min(Math.min(a, b), Math.abs(a - b) % n);
+    private static boolean check(int x, int n ,int a, int b) {
+        int count = a / x + b / x;
+        return count >= n;
     }
 }
