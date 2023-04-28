@@ -14,25 +14,19 @@ public class meituans1 {
     private static int minOps(String S, String T) {
         int sLen = S.length();
         int tLen = T.length();
-        int[][] dp = new int[sLen + 1][tLen + 1];
-
-        for (int i = 0; i <= sLen; i++) {
-            dp[i][0] = i;
+        int count = 0, pos = 0;
+        if (sLen > tLen) {
+            count = sLen - tLen;
+            pos = tLen - 1;
+        } else {
+            pos = sLen - 1;
         }
-        for (int j = 0; j <= tLen; j++) {
-            dp[0][j] = j;
-        }
-
-        for (int i = 1; i <= sLen; i++) {
-            for (int j = 1; j <= tLen; j++) {
-                if (S.charAt(i - 1) == T.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][j - 1]) + 1;
-                }
+        while (pos >= 0) {
+            if (S.charAt(pos) != T.charAt(pos)) {
+                count++;
             }
+            pos--;
         }
-
-        return dp[sLen][tLen];
+        return count;
     }
 }
