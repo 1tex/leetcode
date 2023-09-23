@@ -16,41 +16,61 @@
 //        说明
 //        一开始集合为 [1, 3, 5, 7, 9]，选择相邻两项，可以得到 [1, 2, 3, 4, 5, 6, 7, 8, 9]。
 
-import java.util.HashSet;
+//import java.util.HashSet;
+//import java.util.Scanner;
+//
+//// 注意类名必须为 Main, 不要有任何 package xxx 信息
+//public class oppo2 {
+//    public static void main(String[] args) {
+//        Scanner in = new Scanner(System.in);
+//        // 注意 hasNext 和 hasNextLine 的区别
+//        int n = in.nextInt();
+//        int a = in.nextInt();
+//        int d = in.nextInt();
+//
+//        HashSet<Integer> set = new HashSet<>();
+//        for (int i = 0; i < n; i++) {
+//            set.add(a + i * d);
+//        }
+//
+//        int originalSize;
+//        do {
+//            originalSize = set.size();
+//            HashSet<Integer> newElements = new HashSet<>();
+//
+//            Integer[] arr = set.toArray(new Integer[0]);
+//            for (int i = 0; i < arr.length; ++i) {
+//                for (int j = i + 1; j < arr.length; ++j) {
+//                    if ((arr[i] + arr[j]) % 2 == 0) {
+//                        newElements.add((arr[i] + arr[j]) / 2);
+//                    }
+//                }
+//            }
+//
+//            set.addAll(newElements);
+//        } while (set.size() > originalSize);
+//
+//        System.out.println(set.size());
+//    }
+//}
+
 import java.util.Scanner;
 
-// 注意类名必须为 Main, 不要有任何 package xxx 信息
 public class oppo2 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        // 注意 hasNext 和 hasNextLine 的区别
-        int n = in.nextInt();
-        int a = in.nextInt();
-        int d = in.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int a = scanner.nextInt();
+        int d = scanner.nextInt();
 
-        HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            set.add(a + i * d);
+//        boolean aIsOdd = (a % 2 != 0);
+//        boolean dIsOdd = (d % 2 != 0);
+
+        if ((a % 2 == 0 && d % 2 == 0) || (a%2!=0 && d%2!=0)) {
+            System.out.println(2 * n - 1);
+        } else {
+            System.out.println(n + n/2);
         }
-
-        int originalSize;
-        do {
-            originalSize = set.size();
-            HashSet<Integer> newElements = new HashSet<>();
-
-            Integer[] arr = set.toArray(new Integer[0]);
-            for (int i = 0; i < arr.length; ++i) {
-                for (int j = i + 1; j < arr.length; ++j) {
-                    if ((arr[i] + arr[j]) % 2 == 0) {
-                        newElements.add((arr[i] + arr[j]) / 2);
-                    }
-                }
-            }
-
-            set.addAll(newElements);
-        } while (set.size() > originalSize);
-
-        System.out.println(set.size());
     }
 }
 
