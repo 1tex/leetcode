@@ -14,6 +14,7 @@ public class lixiang3 {
         if (nums == null || nums.size() == 0) {
             return 0;
         }
+
         int n = nums.size();
         int[] dp = new int[n];
         int max = 0;
